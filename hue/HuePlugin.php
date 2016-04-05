@@ -59,7 +59,7 @@ class HuePlugin extends BasePlugin
    */
   public function getDocumentationUrl()
   {
-    return '';
+    return 'https://github.com/TopShelfCraft/Hue';
   }
 
   /**
@@ -89,7 +89,7 @@ class HuePlugin extends BasePlugin
    */
   public function getReleaseFeedUrl()
   {
-    return '';
+    return 'https://github.com/TopShelfCraft/Hue/raw/master/releases.json';
   }
 
   /**
