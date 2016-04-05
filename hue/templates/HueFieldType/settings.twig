@@ -1,0 +1,12 @@
+{% import '_includes/forms' as forms %}
+
+{{ forms.textField(
+	{
+		label: 'Default Color',
+		name: 'defaultColor',
+		instructions : "Enter a hex color, or leave blank for _'none'_.",
+		placeholder : '(None)',
+		unit : '',
+		title: ""
+	}
+) }}

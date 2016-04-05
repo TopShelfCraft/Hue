@@ -1,0 +1,60 @@
+{% import '_includes/forms' as forms %}
+
+<div class="element">
+
+    {{ forms.color(
+    {
+        id: pickerId,
+        name: name ~ '_picker',
+        value: value,
+        instructions : false,
+        title: 'Select a color...'
+    }
+    ) }}
+
+    {{ forms.text(
+    {
+        id: inputId,
+        name: name,
+        value: value,
+        instructions : false,
+        placeholder : '(None)',
+        unit : '',
+        title: "Enter a hex color code, or leave blank for 'no color'.",
+        size: 8,
+        class: 'btn big',
+        style: 'vertical-align: top;'
+    }
+    ) }}
+
+    <span style="vertical-align: 15%; padding-left: 5px;">
+    <a id="{{ clearButtonId }}" class="delete icon" title="Clear color..." role="button"></a>
+    </span>
+
+</div>
+
+
+{% set pickerJs %}
+
+    var ${{ pickerId }} = $('#{{ pickerId|namespaceInputId }}');
+    var ${{ inputId }} = $('#{{ inputId|namespaceInputId }}');
+    var ${{ clearButtonId }} = $('#{{ clearButtonId|namespaceInputId }}');
+
+    ${{ clearButtonId }}.on('click', function(e){
+        ${{ pickerId }}.val(null);
+        ${{ inputId }}.val(null);
+    });
+
+    ${{ inputId }}.on('keyup change', function(e){
+        var c = ${{ inputId }}.val().replace('#', '').substring(0,6);
+        console.log(c);
+        ${{ pickerId }}.val( '#'+c );
+    });
+
+    ${{ pickerId }}.on('keyup change', function(e){
+        ${{ inputId }}.val( ${{ pickerId }}.val() );
+    });
+
+{% endset %}
+
+{% includeJs pickerJs %}
