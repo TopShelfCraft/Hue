@@ -47,7 +47,6 @@
 
     ${{ inputId }}.on('keyup change', function(e){
         var c = ${{ inputId }}.val().replace('#', '').substring(0,6);
-        console.log(c);
         ${{ pickerId }}.val( '#'+c );
     });
 
