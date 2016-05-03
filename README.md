@@ -17,6 +17,8 @@ The _Hue_ fieldtype works almost identically to Craft's native Color field, with
 - You can set the default color to be empty.
 - The `ColorModel` gives you access to nice helper variables.
 
+![Screenshot](hue/resources/screenshots/HueFieldTypePreview.png)
+
 * * *
 
 

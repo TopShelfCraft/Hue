@@ -63,7 +63,7 @@ class Hue_ColorModel extends BaseModel
     public function getRed()
     {
         $rgb = $this->hexToRgb($this->color, true);
-        return $rgb['red'];
+        return $rgb['r'];
     }
 
     /**
@@ -80,7 +80,7 @@ class Hue_ColorModel extends BaseModel
     public function getGreen()
     {
         $rgb = $this->hexToRgb($this->color, true);
-        return $rgb['green'];
+        return $rgb['g'];
     }
 
     /**
@@ -97,7 +97,7 @@ class Hue_ColorModel extends BaseModel
     public function getBlue()
     {
         $rgb = $this->hexToRgb($this->color, true);
-        return $rgb['blue'];
+        return $rgb['b'];
     }
 
     /**
@@ -116,21 +116,17 @@ class Hue_ColorModel extends BaseModel
      */
     public function hexToRgb($hex, $returnAsArray = false)
     {
+        
+        $shorthand = (strlen($hex) == 4);
 
-        $hex = str_replace("#", "", $hex);
-
-        if(strlen($hex) == 3) {
-            $r = hexdec(substr($hex,0,1).substr($hex,0,1));
-            $g = hexdec(substr($hex,1,1).substr($hex,1,1));
-            $b = hexdec(substr($hex,2,1).substr($hex,2,1));
-        } else {
-            $r = hexdec(substr($hex,0,2));
-            $g = hexdec(substr($hex,2,2));
-            $b = hexdec(substr($hex,4,2));
-        }
-
-        $rgb = array('r' => $r, 'g' => $g, 'b' => $b);
-
+        list($r, $g, $b) = $shorthand? sscanf($hex, "#%1s%1s%1s") : sscanf($hex, "#%2s%2s%2s");
+        
+        $rgb = [
+            "r" => hexdec($shorthand? "$r$r" : $r),
+            "g" => hexdec($shorthand? "$g$g" : $g),
+            "b" => hexdec($shorthand? "$b$b" : $b)
+        ];
+        
         return $returnAsArray ? $rgb : implode(",", $rgb);
 
     }

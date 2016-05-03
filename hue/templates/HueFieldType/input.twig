@@ -22,7 +22,7 @@
         unit : '',
         title: "Enter a hex color code, or leave blank for 'no color'.",
         size: 8,
-        class: 'btn big',
+        class: 'big',
         style: 'vertical-align: top;'
     }
     ) }}
@@ -47,7 +47,6 @@
 
     ${{ inputId }}.on('keyup change', function(e){
         var c = ${{ inputId }}.val().replace('#', '').substring(0,6);
-        console.log(c);
         ${{ pickerId }}.val( '#'+c );
     });
 
