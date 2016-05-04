@@ -3,7 +3,7 @@
 _A slightly better color picker for CraftCMS_
 
 by Michael Rog  
-[http://topshelfcraft.com](http://topshelfcraft.com)
+[https://topshelfcraft.com](https://topshelfcraft.com)
 
 
 
@@ -63,8 +63,7 @@ Craft 2.5+ and PHP 5.4+
 
 ### I found a bug.
 
-Please open a GitHub Issue, submit a PR, or just email me to let me know.
-
+Please open a GitHub Issue, submit a PR to the `dev` branch, or just email me to let me know.
 
 
 * * *
@@ -72,3 +71,4 @@ Please open a GitHub Issue, submit a PR, or just email me to let me know.
 #### Contributors:
 
   - Plugin development: [Michael Rog](http://michaelrog.com) / @michaelrog
+  - Plugin development: [Steve V](https://github.com/dubcanada) / @dubcanada

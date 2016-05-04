@@ -1,5 +1,16 @@
 [
   {
+    "version": "0.1.0",
+    "downloadUrl": "https://github.com/TopShelfCraft/Hue/archive/0.1.0.zip",
+    "date": "2016-05-03T07:07:07",
+    "notes": [
+      "[Fixed] Fixed an issue that prevented the text input from being changed in Safari.",
+      "[Fixed] Fixed a bug where the RGB component methods referenced incorrect internal array keys.",
+      "[Improved] Removed `console.log` calls from the JS.",
+      "[Improved] Added a workaround to make sure `Craft.ColorPicker` syncs with the new color value when Hue's text input is changed."
+    ]
+  },
+  {
     "version": "0.0.1",
     "downloadUrl": "https://github.com/TopShelfCraft/Hue/archive/0.0.1.zip",
     "date": "2016-04-05T03:20:00",
