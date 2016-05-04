@@ -23,7 +23,7 @@
         title: "Enter a hex color code, or leave blank for 'no color'.",
         size: 8,
         class: 'big',
-        style: 'vertical-align: top;'
+        style: 'vertical-align: top; height: 36px; line-height: 36px; padding: 6px 12px;'
     }
     ) }}
 
@@ -36,18 +36,30 @@
 
 {% set pickerJs %}
 
-    var ${{ pickerId }} = $('#{{ pickerId|namespaceInputId }}');
+    var ${{ pickerId }} = $('[name="{{ (name~'_picker')|namespaceInputName }}"]');
     var ${{ inputId }} = $('#{{ inputId|namespaceInputId }}');
     var ${{ clearButtonId }} = $('#{{ clearButtonId|namespaceInputId }}');
 
     ${{ clearButtonId }}.on('click', function(e){
         ${{ pickerId }}.val(null);
-        ${{ inputId }}.val(null);
+        ${{ inputId }}.val(null).trigger('change');
     });
 
     ${{ inputId }}.on('keyup change', function(e){
-        var c = ${{ inputId }}.val().replace('#', '').substring(0,6);
-        ${{ pickerId }}.val( '#'+c );
+
+        var color = ${{ inputId }}.val().replace('#', '').substring(0,6);
+        ${{ pickerId }}.val( '#'+color );
+
+        // If we're in a browser that doesn't support the `color` input type natively,
+        // Craft will have replaced that input with a JS colorpicker.
+        if ( ${{ pickerId }}.attr('type') == 'hidden' )
+        {
+            // Set the picker color
+            ${{ pickerId }}.parent().ColorPickerSetColor(color);
+            // Update the preview swatch
+            ${{ pickerId }}.siblings('.colorpreview').css('backgroundColor', (color.length ? '#'+color : 'transparent'));
+        }
+
     });
 
     ${{ pickerId }}.on('keyup change', function(e){
