@@ -1,5 +1,13 @@
 [
   {
+    "version": "1.0.0",
+    "downloadUrl": "https://github.com/TopShelfCraft/Hue/archive/1.0.0.zip",
+    "date": "2016-05-31T20:43:00",
+    "notes": [
+      "[Fixed] Fixed a bug where the saved value for Default Color was not displayed on the field Settings screen."
+    ]
+  },
+  {
     "version": "0.1.0",
     "downloadUrl": "https://github.com/TopShelfCraft/Hue/archive/0.1.0.zip",
     "date": "2016-05-03T07:07:07",
