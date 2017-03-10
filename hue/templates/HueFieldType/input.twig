@@ -66,6 +66,24 @@
         ${{ inputId }}.val( ${{ pickerId }}.val() );
     });
 
+    // Trigger change event on hidden input elements, which
+    // are used in browsers without native color input support
+    if ( ${{ pickerId }}.attr('type') == 'hidden' )
+    {
+        (function ($picker) {
+
+            // Preserve the existing onChange callback
+            var cal = $('#' + $picker.parent().data('colorpickerId'));
+            var existingOnChange = cal.data('colorpicker').onChange;
+            // Update the onChange callback
+            cal.data('colorpicker').onChange = function () {
+                existingOnChange.apply(this, arguments);
+                $picker.trigger('change');
+            };
+
+        })(${{ pickerId }});
+    }
+
 {% endset %}
 
 {% includeJs pickerJs %}
