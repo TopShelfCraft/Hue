@@ -1,5 +1,15 @@
 [
   {
+    "version": "1.1.1",
+    "downloadUrl": "https://github.com/TopShelfCraft/Hue/archive/1.1.1.zip",
+    "date": "2016-06-11T09:28:00",
+    "notes": [
+      "[Fixed] Fixed a bug where opening the colour picker and selecting a colour doesn't update the value in the field. (h/t @richhayler)",
+      "[Added] Added the ability to instantiate a color object from a hex value in Twig. (h/t @aaronwaldon)",
+      "[Added] Added a Luma method. (h/t @aaronwaldon)"
+    ]
+  },
+  {
     "version": "1.0.0",
     "downloadUrl": "https://github.com/TopShelfCraft/Hue/archive/1.0.0.zip",
     "date": "2016-05-31T20:43:00",
