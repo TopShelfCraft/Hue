@@ -131,4 +131,21 @@ class Hue_ColorModel extends BaseModel
 
     }
 
+	/**
+	 * Get brightness of an image. Values closer to 0 are darker, closer to 1 are lighter.
+	 *
+	 * @see http://stackoverflow.com/a/12228906/1136822 Stack Overflow answer.
+	 * @see https://en.wikipedia.org/wiki/Luma_(video) Luma
+	 *
+	 * @return float
+	 */
+    public function luma()
+	{
+		$rgb = $this->hexToRgb($this->color, true);
+		$r = $rgb['r'];
+		$g = $rgb['g'];
+		$b = $rgb['b'];
+
+		return (0.2126*$r + 0.7152*$g + 0.0722*$b)/255;
+	}
 }
