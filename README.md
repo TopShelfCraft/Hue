@@ -29,6 +29,20 @@ When you access a Hue field in your templates, its value will either be `null` (
 
 
 
+### Using Hue without a field
+
+You can create a Hue _ColorModel_ instance in your templates and work with it just like you would a Hue field. To create a Hue instance in your template, simply pass a color to the `craft.hue.createColorFromHex( '#ff80ff' )` method.
+
+Here's an example to determine whether a hex color is light or dark:
+
+```twig
+	{% set hex = '#ff80ff' %}
+	{% set hueColor = craft.hue.createColorFromHex(hex) %}
+	<p>The color "{{ hex }}" is {{ hueColor.luma > 0.5 ? 'light' : 'dark') }}.</p>
+```
+
+
+
 ### ColorModel properties
 
 A _ColorModel_ has the following methods/properties:
@@ -53,6 +67,10 @@ Returns the _numeric_ value of the green channel, from 0-255.
 
 Returns the _numeric_ value of the blue channel, from 0-255.
 
+##### `luma()` / `.luma`
+
+Returns the _numeric_ brightness of an image, from 0-1. Values closer to 0 are darker, closer to 1 are lighter.
+
 
 
 ### What are the system requirements?
@@ -72,3 +90,4 @@ Please open a GitHub Issue, submit a PR to the `dev` branch, or just email me to
 
   - Plugin development: [Michael Rog](http://michaelrog.com) / @michaelrog
   - Plugin development: [Steve V](https://github.com/dubcanada) / @dubcanada
+  - Plugin development: [Aaron Waldon](https://github.com/aaronwaldon) / @aaronwaldon
