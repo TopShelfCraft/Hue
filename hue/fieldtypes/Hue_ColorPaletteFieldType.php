@@ -109,7 +109,7 @@ class Hue_ColorPaletteFieldType extends BaseFieldType implements IPreviewableFie
      * Return the data that will be used in the templates and anytime this value is referenced.
      *
      * @param mixed $value
-     * @return Hue_ColorPaletteColorModel|null
+     * @return BaseModel|Hue_ColorPaletteColorModel|null
      */
     public function prepValue($value)
     {
@@ -117,7 +117,7 @@ class Hue_ColorPaletteFieldType extends BaseFieldType implements IPreviewableFie
         {
             $colorData = $this->getColorFromKey($value);
 
-            if (!empty($colorData) && !empty($colorData['hex']))
+            if (!empty($colorData) && is_array($colorData))
             {
                 $colorData['key'] = $value;
                 return Hue_ColorPaletteColorModel::populateModel($colorData);
