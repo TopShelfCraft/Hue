@@ -17,7 +17,7 @@ class Hue_ColorPaletteColorModel extends BaseModel
      */
     public function __toString()
     {
-        return $this->value;
+        return !is_null($this->value) ? $this->value : '';
     }
 
     /**
