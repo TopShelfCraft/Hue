@@ -1,0 +1,31 @@
+/*
+Attempts to match the style of the button box color blocks.
+https://github.com/supercool/buttonbox
+*/
+.huePaletteColors-color {
+	display: inline-block;
+	vertical-align: middle;
+	border-radius: 4px;
+	width: 18px;
+	height: 18px;
+	border: 2px solid #fff;
+	margin-right: 8px;
+}
+
+.huePaletteColors-label {
+	display: inline-block;
+	vertical-align: middle;
+	padding-top: 2px;
+}
+
+.huePaletteColors-select {
+	display: none;
+}
+
+.huePaletteColors-button {
+	-webkit-appearance: none;
+	border-radius: 0;
+	border: none;
+	background: none;
+	padding-left: 0;
+}

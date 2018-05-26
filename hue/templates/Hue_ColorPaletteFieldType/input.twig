@@ -1,0 +1,53 @@
+<div class="huePaletteColors"{% if id is defined %} id="{{ id }}"{% endif %}>
+    {% if colors is not empty %}
+        {% set value = selectedModel.key ?? null %}
+
+        {% set selectOptions = '' %}
+        {% set menuOptions = '' %}
+        {% set buttonHtml = 'Pick a color' %}
+
+        {% for key, option in colors %}
+            {% set optionLabel = (option.label is defined ? option.label : key)|escape %}
+            {% set optionKey = key|escape %}
+            {% set optionDisabled = (option.disabled is defined ? option.disabled : false) %}
+            {% set optionHex = (option.hex ?? 'transparent')|escape %}
+
+            {# set the selection option #}
+            {% set selectOption %}
+                <option data-hex="{{ optionHex }}" value="{{ optionKey }}"{% if optionKey == value %} selected{% endif %}{% if optionDisabled %} disabled{% endif %}>{{ optionLabel }}</option>
+            {% endset %}
+            {% set selectOptions = selectOptions~selectOption %}
+
+            {# set the menu option #}
+            {% set menuOption %}
+                <li>
+                    <a data-value="{{ optionKey }}" class="{% if optionKey == value %} sel{% endif %}{% if optionDisabled %} disabled{% endif %}" role="button"><span class="huePaletteColors-color" style="background-color: {{ optionHex }}"></span> <span class="huePaletteColors-label{% if optionDisabled %} disabled{% endif %}">{{ optionLabel }}</span></a>
+                </li>
+            {% endset %}
+            {% set menuOptions = menuOptions~menuOption %}
+
+            {# update the button value #}
+            {% if optionKey == value or loop.first %}
+                {% set buttonHtml %}
+                    <span class="huePaletteColors-color{% if optionDisabled %} disabled{% endif %}" style="background-color: {{ optionHex }}"></span> <span class="huePaletteColors-label{% if optionDisabled %} disabled{% endif %}">{{ optionLabel }}</span>
+                {% endset %}
+            {% endif %}
+        {% endfor %}
+
+        <select class="huePaletteColors-select"{%- if name is defined %} name="{{ name }}"{% endif %}>
+            {{ selectOptions|raw }}
+        </select>
+
+        <button class="huePaletteColors-button" type="button">{{ buttonHtml|raw }}</button>
+
+        <div class="menu huePaletteColors-menu">
+            <ul class="padded">
+                {{ menuOptions|raw }}
+            </ul>
+        </div>
+    {% else %}
+        {# let the user know that we couldn't find any colors #}
+        <input type="hidden" name="{{ name }}" value="">
+        <p>&mdash;</p>
+    {% endif %}
+</div>
