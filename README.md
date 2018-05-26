@@ -18,7 +18,7 @@ The **Hue Color Picker** fieldtype works almost identically to Craft's native Co
 - You can set the default color to be empty.
 - The `ColorModel` gives you access to nice helper variables.
 
-![Hue Color Picker Screenshot](hue/resources/screenshots/HueColorPickerFieldtypePreview.png)
+![Hue Color Picker Screenshot](screenshots/HueColorPickerFieldtypePreview.png)
 
 
 
@@ -28,7 +28,7 @@ The **Hue Color Palette** fieldtype works a lot like (and is inspired by) the [B
 - You can disable a color so that it cannot be selected anymore, but still allow its existing data to be available.
 - You can change the value, label, and hex color information at any time, and it updates everywhere.
 
-![Hue Color Palette Screenshot](hue/resources/screenshots/HueColorPaletteFieldtypePreview.png)
+![Hue Color Palette Screenshot](screenshots/HueColorPaletteFieldtypePreview.png)
 
 
 * * *
