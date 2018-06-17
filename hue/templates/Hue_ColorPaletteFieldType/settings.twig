@@ -1,0 +1,9 @@
+{% import '_includes/forms' as forms %}
+
+{{ forms.selectField({
+    label: 'Palette',
+    name: 'palette',
+    instructions : "Choose which config palette to use.",
+    value: settings.palette ?? '',
+    options: options
+}) }}

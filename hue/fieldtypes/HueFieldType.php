@@ -21,7 +21,7 @@ class HueFieldType extends BaseFieldType implements IPreviewableFieldType
      */
     public function getName()
     {
-        return Craft::t('Hue');
+        return Craft::t('Hue Color Picker');
     }
 
     /**
